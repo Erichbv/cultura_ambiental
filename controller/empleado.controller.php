@@ -23,16 +23,18 @@ class empleadoController{
 
             return true;
     	}else{
-    		echo("<script type='javascript'>");
+    		echo("<script>");
     		echo("alert('Usuario o Contraseña Incorrecta');");
     		echo("</script>");
-    		return false;
+    	include_once 'view/login.php';
+        exit();
     	}
     }else{
-    		echo("<script type='javascript'>");
+    		echo("<script>");
     		echo("alert('Intentelo Nuevamente');");
     		echo("</script>");
-    		return false;
+    	   include_once 'view/login.php';
+            exit();
     }
 
     }

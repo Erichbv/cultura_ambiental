@@ -7,9 +7,10 @@
 		<title>INICIAR SESION -- MI BANCO</title>
 
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-		<link rel="stylesheet" type="text/css" href="bootstrap-theme.min.css"> 
-		<style type="text/css">
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
+		<link rel="stylesheet" type="assets/text/css" href="bootstrap-theme.min.css"> 
+		
+        <style type="text/css">
 			body {
   				background: url('http://revistaganamas.com.pe/wp-content/uploads/2016/05/Mibanco-foto.jpg');
  	 			background-position: center center;
@@ -73,6 +74,6 @@
 		<!-- jQuery -->
 		<script src="//code.jquery.com/jquery.js"></script>
 		<!-- Bootstrap JavaScript -->
-		<script src="js/bootstrap.min.js" type="javascript"></script>
+		<script src="assets/js/bootstrap.min.js" type="javascript"></script>
 	</body>
 </html>

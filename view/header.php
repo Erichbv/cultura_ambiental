@@ -37,6 +37,6 @@
     <!-- jQuery -->
     <script src="//code.jquery.com/jquery.js"></script>
     <!-- Bootstrap JavaScript -->
-    <script src="js/bootstrap.min.js" type="javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="javascript"></script>
   </body>
 </html>
