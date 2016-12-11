@@ -12,19 +12,22 @@
   <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">MI BANCO</a>
+      <a class="navbar-brand" href="index.php">MI BANCO</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">INICIO</a></li>
-      <li><a href="#">CLIENTE</a></li>
-      <li><a href="?action=afiliacion">AFILIACION</a></li>
+      <li class="active"><a href="index.php">INICIO</a></li>
+      <li><a href="?action=cliente">CLIENTE</a></li>
+      <?php 
+      if(strcasecmp($_SESSION['cargo'],'supervisor')==0){
+        echo("<li><a href='?listar=listar'>AFILIACION</a></li>");
+      }else{echo("<li><a href='?action=afiliacion'>AFILIACION</a></li>");}?> 
     </ul>
     <ul class="nav navbar-nav navbar-right">
     <?php if(strcasecmp($_SESSION['cargo'],'supervisor')==0){
       include_once 'controller/afiliacion.controller.php';
       $af=new afiliacionController();
       $numero=$af->mensaje();
-      echo('<li><a href="#"><span class=" glyphicon glyphicon-envelope"></span>'.$numero->numero.' MENSAJES</a></li>');
+      echo('<li><a href="?listar=afiliacion_estado"><span class=" glyphicon glyphicon-envelope"></span>'.$numero->numero.' MENSAJES</a></li>');
     }
     ?>
       <li><a href="?cerrar=true"><span class="glyphicon glyphicon-user"></span>CERRAR SESION</a></li>

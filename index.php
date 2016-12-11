@@ -24,6 +24,11 @@ include_once 'view/login.php';
 		include_once 'view/header.php';
 		include_once 'view/afiliacion.php';
 		include_once 'view/footer.php';
+//cliente
+	} else if(strcasecmp($_GET['action'],"cliente")==0){
+		include_once 'view/header.php';
+		include_once 'view/buscar_cliente.php';
+		include_once 'view/footer.php';
 	}else{
 		include_once 'view/header.php';
 		include_once 'view/body.php';
@@ -40,7 +45,33 @@ include_once 'view/login.php';
 	$afiliacion=new afiliacionController();
 	$afiliacion->registrar($cli->id_cliente,$_SESSION['codigo'],0);
 
-//checking sesion	
+//listar estado false	
+}else if (isset($_GET['listar']) && strcasecmp($_GET['listar'],'afiliacion_estado')==0){
+		include_once 'view/header.php';
+		include_once 'view/lista_afiliacion.php';
+		include_once 'view/footer.php';
+
+//actualizar estado afiliacion
+}else if (isset($_GET["dni"]) && isset($_GET["estado"])) {
+include_once 'controller/afiliacion.controller.php';
+$afi= new afiliacionController();
+$afi->actualizar_estado($_GET["dni"]);
+
+//listar estado true afiliacion
+}else if (isset($_GET['listar']) && strcasecmp($_GET['listar'], 'listar')==0) {
+		include_once 'view/header.php';
+		include_once 'view/afiliacion_lista.php';
+		include_once 'view/footer.php';
+
+}else if(isset($_POST['dni_b'])){
+    include_once 'controller/cliente.controller.php';
+	$cliente=new clienteController();
+    $data=$cliente->obtener_cliente($_POST['dni_b']);
+		include_once 'view/header.php';
+		include_once 'view/buscar_cliente.php';
+		include_once 'view/footer.php';
+
+//checking login		
 } else if(checking()){
 	include_once 'view/header.php';
 		include_once 'view/body.php';

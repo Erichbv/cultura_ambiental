@@ -26,5 +26,18 @@ class afiliacionController{
 	public function mensaje(){
 		return $this->model->mensaje();
     }
+    public function listar_estado(){
+        return $this->model->listar_estado();
+    }
+    public function actualizar_estado($dni){
+        if($this->model->actualizar_estado($dni)){
+        include_once 'view/header.php';
+        include_once 'view/body.php';
+        include_once 'view/footer.php';   
+        }
+    }
+    public function listar(){
+        return $this->model->listar();
+    }
 }
 ?>

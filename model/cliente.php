@@ -45,7 +45,7 @@ class cliente{
 		}
 	}
 
-		public function Obtener_cliente($dni){
+		public function obtener_cliente($dni){
 		try 
 		{
 			$stm = $this->pdo
@@ -56,7 +56,8 @@ class cliente{
 			return $stm->fetch(PDO::FETCH_OBJ);
 		} catch (Exception $e) 
 		{
-			die($e->getMessage());
+		return false;
+		//	die($e->getMessage());
 		}
 	}
 

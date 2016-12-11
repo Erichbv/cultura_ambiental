@@ -19,8 +19,19 @@ class clienteController{
     	$this->model->registrar($cliente);
 }    
     public function obtener_cliente($dni){
-    	 return $this->model->obtener_cliente($dni);
-    }
-     
+    	if($this->model->obtener_cliente($dni)){
+            return $this->model->obtener_cliente($dni);
+        }else{
+        echo("<script>");
+            echo("alert('Cliente no Encontrado');");
+            echo("</script>");
+        include_once 'view/header.php';
+        include_once 'view/buscar_cliente.php';
+        include_once 'view/footer.php';
+        exit();
+        }
+        }
+  
+
 }
 ?>

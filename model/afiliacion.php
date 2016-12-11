@@ -23,6 +23,51 @@ class afiliacion {
 		}
 	}
 
+ 	public function listar_estado(){
+		try 
+		{
+			$stm = $this->pdo
+			          ->prepare("SELECT * FROM afiliacion a, cliente c WHERE a.estado = ? and c.id_cliente=a.id_cliente");	
+			          
+			$stm->execute(array('0'));
+			return $stm;
+			//return $stm->fetch(PDO::FETCH_OBJ);
+		} catch (Exception $e) 
+		{
+			die($e->getMessage());
+		}
+	}
+
+	public function listar(){
+		try 
+		{
+			$stm = $this->pdo
+			          ->prepare("SELECT * FROM afiliacion a, cliente c WHERE a.estado = ? and c.id_cliente=a.id_cliente");	
+			          
+			$stm->execute(array('1'));
+			return $stm;
+			//return $stm->fetch(PDO::FETCH_OBJ);
+		} catch (Exception $e) 
+		{
+			die($e->getMessage());
+		}
+	}
+
+	public function actualizar_estado($id_cliente){
+		try 
+		{
+			$stm = $this->pdo
+			          ->prepare("UPDATE afiliacion set estado='1' WHERE id_cliente=?");	
+			          
+			$stm->execute(array($id_cliente));
+			return $stm;
+			//return $stm->fetch(PDO::FETCH_OBJ);
+		} catch (Exception $e) 
+		{
+			die($e->getMessage());
+		}
+	}
+
 	public function mensaje(){
 		try 
 		{
